@@ -1,0 +1,85 @@
+//Library ID: DsczGCkWTH9rnNYuCZJPbuQOvYa5lSspvIsAtV0B85M
+// Eric Vong
+// combines two lists together into one big list.
+// list1 {list}- passes through a list to be combined in a bigger list
+// list2 {list}- passes through a list to be combined in a bigger list
+// returns one list
+function combineLists(list1, list2){
+  var cList;
+  
+  if(list1 > list2){
+    cList = [];
+    for(var i = 0; i < list1.length; i++){
+      appendItem(cList, list1[i]);
+      appendItem(cList, list2[i]);
+    }
+  } else if(list1 < list2){
+    cList = [];
+    for(var k = 0; k < list2.length; k++){
+      appendItem(cList, list1[k]);
+      appendItem(cList, list2[k]);
+    }
+  }
+  return cList;
+}
+
+console.log(combineLists(['a', 'b', 'c'], ['1', '2', '3']));
+
+// Eric Vong
+// returns a list of integers with the values greater than or less than a given number.
+// list {list of integers} passes a list of integers that will get sorted
+// value {string} requires "greater" or "less" to sort the list
+// chosenNumber {integer} a number that determines what the list will be sorted by
+// returns a sorted list
+function filterNumber(list, value, chosenNumber){
+  var sorted = [];
+  if(value == "greater".toLowerCase()){
+    for(var i = 0; i < list.length; i++){
+     if(list[i] > chosenNumber){
+        appendItem(sorted, list[i]);
+    }
+   }
+  } else if(value == "less".toLowerCase()){
+    for(var k = 0; k < list.length; k++){
+     if(list[k] < chosenNumber){
+        appendItem(sorted, list[k]);
+    }
+   }
+  }
+  return sorted;
+}
+
+var test = [5, 4, 2, 6, 7, 3, 1, 0, 8];
+console.log(filterNumber(test, "less", 4));
+
+var list = [1, 2, 3];
+
+//Nathan Tran
+//Find the average value in a list
+//list {list} - the list of numbers
+//Return {number} - the average number
+function average(list) {
+  var total = 0;
+  for (var i = 0; i < list.length; i++) {
+    total = total + list[i];
+  }
+  total = total / list.length;
+  return total;
+}
+console.log(average(list));
+
+//Nathan Tran
+//Finds the maximum value in a list
+// list {list} - the list of numbers
+// Return {number} - the largest number in the list
+function maxNum(list) {
+  var max = list[0];
+  for(var i=0; i<list.length; i++){
+    if (list[i] > max) {
+      max = list[i];
+    }
+  }
+  return max;
+}
+
+console.log(maxNum(list));
